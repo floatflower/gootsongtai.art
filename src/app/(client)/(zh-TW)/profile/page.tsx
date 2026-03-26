@@ -1,4 +1,37 @@
+import type { Metadata } from "next";
 import { routes } from "@/lib/routes";
+
+export const metadata: Metadata = {
+  title: "個人簡介 | Gôo tsong-tāi",
+  description:
+    "吳宗岱（WU, TSUNG-TAI），1997年生，臺中。當代藝術家，以Ｚ世代語境滑動性別與身分的結構，創作游牧於觀念、裝置與社會實踐。",
+  openGraph: {
+    title: "吳宗岱 · 個人簡介 | Gôo tsong-tāi",
+    description:
+      "吳宗岱（WU, TSUNG-TAI），1997年生，臺中。當代藝術家，以Ｚ世代語境滑動性別與身分的結構，創作游牧於觀念、裝置與社會實踐。",
+    url: "https://gootsongtai.art/profile",
+    siteName: "Gôo tsong-tāi",
+    locale: "zh_TW",
+    type: "profile",
+    images: [
+      {
+        url: "https://gootsongtai.art/images/profile/cover.avif",
+        width: 1600,
+        alt: "吳宗岱 Gôo tsong-tāi",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "吳宗岱 · 個人簡介 | Gôo tsong-tāi",
+    description:
+      "吳宗岱（WU, TSUNG-TAI），1997年生，臺中。當代藝術家，以Ｚ世代語境滑動性別與身分的結構，創作游牧於觀念、裝置與社會實踐。",
+    images: ["https://gootsongtai.art/images/profile/cover.avif"],
+  },
+  alternates: {
+    canonical: "https://gootsongtai.art/profile",
+  },
+};
 
 const navRoutes = routes.filter((r) => r.id !== "profile");
 

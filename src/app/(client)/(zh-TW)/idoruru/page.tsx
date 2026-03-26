@@ -1,5 +1,38 @@
+import type { Metadata } from "next";
 import { BeforeAfterCarousel } from "./_components/before-after-carousel";
 import { routes } from "@/lib/routes";
+
+export const metadata: Metadata = {
+  title: "偶像轉生計劃 Idoruru | Gôo tsong-tāi",
+  description:
+    "《偶像轉生計劃 Idoruru》——吳宗岱聯合展覽，探討擬社會互動（Parasocial Interaction）與媒介對當代身分認同的影響。2025，臺中。",
+  openGraph: {
+    title: "偶像轉生計劃 Idoruru | Gôo tsong-tāi",
+    description:
+      "《偶像轉生計劃 Idoruru》——吳宗岱聯合展覽，探討擬社會互動（Parasocial Interaction）與媒介對當代身分認同的影響。2025，臺中。",
+    url: "https://gootsongtai.art/idoruru",
+    siteName: "Gôo tsong-tāi",
+    locale: "zh_TW",
+    type: "website",
+    images: [
+      {
+        url: "https://gootsongtai.art/images/idoruru/cover.avif",
+        width: 1600,
+        alt: "偶像轉生計劃 Idoruru",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "偶像轉生計劃 Idoruru | Gôo tsong-tāi",
+    description:
+      "《偶像轉生計劃 Idoruru》——吳宗岱聯合展覽，探討擬社會互動（Parasocial Interaction）與媒介對當代身分認同的影響。2025，臺中。",
+    images: ["https://gootsongtai.art/images/idoruru/cover.avif"],
+  },
+  alternates: {
+    canonical: "https://gootsongtai.art/idoruru",
+  },
+};
 
 const navRoutes = routes.filter((r) => r.id !== "idoruru");
 
