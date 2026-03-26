@@ -45,12 +45,8 @@ const jsonLd = {
   nationality: "Taiwanese",
   jobTitle: "當代藝術家",
   url: "https://gootsongtai.art/",
-  sameAs: [
-    "https://gootsongtai.art/",
-    "https://www.instagram.com/wutsongtai/",
-  ],
+  sameAs: ["https://gootsongtai.art/", "https://www.instagram.com/wutsongtai/"],
   email: "1100116@itd.tnnua.edu.tw",
-  telephone: "+886975775875",
   address: {
     "@type": "PostalAddress",
     addressLocality: "臺中",
@@ -162,32 +158,33 @@ export default function ProfilePage() {
               >
                 1100116@itd.tnnua.edu.tw
               </a>
-              <p className="text-sm font-semibold text-white/50">
-                +886 975 775 875
-              </p>
             </div>
 
             {/* Social */}
             <div className="space-y-2">
               <p className="text-xs font-black tracking-[0.25em] text-white/30 uppercase mb-3">
-                Online
+                Social
               </p>
-              <a
-                href="https://gootsongtai.art/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-sm font-semibold text-white/50 hover:text-white/80 transition-colors"
-              >
-                gootsongtai.art
-              </a>
-              <a
-                href="https://www.instagram.com/wutsongtai/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-sm font-semibold text-white/50 hover:text-white/80 transition-colors"
-              >
-                @wutsongtai
-              </a>
+              <div className="flex gap-4 pt-1">
+                <a
+                  href="https://www.instagram.com/wutsongtai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/50 hover:text-white/80 transition-colors"
+                  aria-label="Instagram"
+                >
+                  <i className="fa-brands fa-instagram text-lg" />
+                </a>
+                <a
+                  href="https://www.facebook.com/wutsongtai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/50 hover:text-white/80 transition-colors"
+                  aria-label="Facebook"
+                >
+                  <i className="fa-brands fa-facebook text-lg" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -243,32 +240,33 @@ export default function ProfilePage() {
               >
                 1100116@itd.tnnua.edu.tw
               </a>
-              <p className="text-sm font-semibold text-white/50">
-                +886 975 775 875
-              </p>
             </div>
 
-            {/* Online */}
+            {/* Social */}
             <div className="space-y-2">
               <p className="text-xs font-black tracking-[0.25em] text-white/30 uppercase mb-3">
-                Online
+                Social
               </p>
-              <a
-                href="https://gootsongtai.art/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-sm font-semibold text-white/50"
-              >
-                gootsongtai.art
-              </a>
-              <a
-                href="https://www.instagram.com/wutsongtai/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-sm font-semibold text-white/50"
-              >
-                @wutsongtai
-              </a>
+              <div className="flex gap-4 pt-1">
+                <a
+                  href="https://www.instagram.com/wutsongtai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/50"
+                  aria-label="Instagram"
+                >
+                  <i className="fa-brands fa-instagram text-lg" />
+                </a>
+                <a
+                  href="https://www.facebook.com/wutsongtai/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/50"
+                  aria-label="Facebook"
+                >
+                  <i className="fa-brands fa-facebook text-lg" />
+                </a>
+              </div>
             </div>
           </div>
 
