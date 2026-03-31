@@ -2,34 +2,34 @@ import type { Metadata } from "next";
 import { routes } from "@/lib/routes";
 
 export const metadata: Metadata = {
-  title: "個人簡介 | Gôo tsong-tāi",
+  title: "Profile | Gôo tsong-tāi",
   description:
-    "吳宗岱（WU, TSUNG-TAI），1997年生，臺中。當代藝術家，以Ｚ世代語境滑動性別與身分的結構，創作游牧於觀念、裝置與社會實踐。",
+    "Gôo tsong-tāi (WU, TSUNG-TAI), b. 1997, Taichung. Contemporary artist navigating gender and identity through Generation Z language; works traverse conceptual art, installation, and social practice.",
   openGraph: {
-    title: "吳宗岱 · 個人簡介 | Gôo tsong-tāi",
+    title: "Gôo tsong-tāi · Profile",
     description:
-      "吳宗岱（WU, TSUNG-TAI），1997年生，臺中。當代藝術家，以Ｚ世代語境滑動性別與身分的結構，創作游牧於觀念、裝置與社會實踐。",
-    url: "https://gootsongtai.art/profile",
+      "Gôo tsong-tāi (WU, TSUNG-TAI), b. 1997, Taichung. Contemporary artist navigating gender and identity through Generation Z language; works traverse conceptual art, installation, and social practice.",
+    url: "https://gootsongtai.art/profile/en",
     siteName: "Gôo tsong-tāi",
-    locale: "zh_TW",
+    locale: "en_US",
     type: "profile",
     images: [
       {
         url: "https://gootsongtai.art/images/profile/cover.avif",
         width: 1600,
-        alt: "吳宗岱 Gôo tsong-tāi",
+        alt: "Gôo tsong-tāi",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "吳宗岱 · 個人簡介 | Gôo tsong-tāi",
+    title: "Gôo tsong-tāi · Profile",
     description:
-      "吳宗岱（WU, TSUNG-TAI），1997年生，臺中。當代藝術家，以Ｚ世代語境滑動性別與身分的結構，創作游牧於觀念、裝置與社會實踐。",
+      "Gôo tsong-tāi (WU, TSUNG-TAI), b. 1997, Taichung. Contemporary artist navigating gender and identity through Generation Z language; works traverse conceptual art, installation, and social practice.",
     images: ["https://gootsongtai.art/images/profile/cover.avif"],
   },
   alternates: {
-    canonical: "https://gootsongtai.art/profile",
+    canonical: "https://gootsongtai.art/profile/en",
   },
 };
 
@@ -38,38 +38,38 @@ const navRoutes = routes.filter((r) => r.id !== "profile");
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "吳宗岱",
-  alternateName: ["WU, TSUNG-TAI", "Gôo tsong-tāi"],
+  name: "WU, TSUNG-TAI",
+  alternateName: ["吳宗岱", "Gôo tsong-tāi"],
   birthDate: "1997",
-  birthPlace: { "@type": "Place", name: "臺中，臺灣" },
+  birthPlace: { "@type": "Place", name: "Taichung, Taiwan" },
   nationality: "Taiwanese",
-  jobTitle: "當代藝術家",
+  jobTitle: "Contemporary Artist",
   url: "https://gootsongtai.art/",
   sameAs: ["https://gootsongtai.art/", "https://www.instagram.com/wutsongtai/"],
   email: "1100116@itd.tnnua.edu.tw",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "臺中",
+    addressLocality: "Taichung",
     addressCountry: "TW",
   },
   alumniOf: [
     {
       "@type": "EducationalOrganization",
-      name: "國立臺南藝術大學",
-      department: "造形藝術研究所",
+      name: "Tainan National University of the Arts",
+      department: "Graduate Institute of Plastic Arts",
     },
     {
       "@type": "EducationalOrganization",
-      name: "國立東華大學",
-      department: "藝術與設計學系",
+      name: "National Dong Hwa University",
+      department: "Department of Art and Design",
     },
   ],
   award: [
-    "藝術未來獎 第一屆亞洲優秀畢業生獎 入圍，香港，2023",
-    "陳啟川先生南藝造形藝術獎，2023",
+    "Art Futures Awards, Outstanding Graduate Award (Asia), Finalist, Hong Kong, 2023",
+    "Mr. Chen Chi-Chuan TNNUA Plastic Arts Award, 2023",
   ],
   description:
-    "1997年生，現居臺中。以Ｚ世代語境滑動性別與身分的結構。創作游牧於觀念、裝置與社會實踐，以社群平臺、ACG同人與Ｚ世代價值觀等媒介，模糊藝術家做為創作者的輪廓。",
+    "Born in 1997, currently resides in Taichung. Hir artworks focus on the fluidity of gender and identity in the language of Generation Z; pieces often toe the line between conceptual art, installation art, and social practices, using creative mediums such as social media, ACG doujin culture, and Gen Z values.",
 };
 
 export default function ProfilePage() {
@@ -90,10 +90,10 @@ export default function ProfilePage() {
       {/* Navbar */}
       <nav className="fixed top-0 right-0 z-50 px-8 py-6 flex gap-8">
         <a
-          href="/profile/en"
+          href="/profile"
           className="text-xs font-black tracking-[0.25em] uppercase text-white/40 hover:text-white transition-colors"
         >
-          EN
+          中文
         </a>
         {navRoutes.map((r) => (
           <a
@@ -131,16 +131,21 @@ export default function ProfilePage() {
             {/* Title */}
             <div>
               <p className="text-white/70 text-base font-bold leading-relaxed">
-                當代藝術家
+                Contemporary Artist
               </p>
               <p className="text-white/40 text-sm font-semibold mt-1">
-                臺中，臺灣
+                Taichung, Taiwan
               </p>
             </div>
 
             {/* Keywords */}
             <div className="flex flex-col gap-2">
-              {["現象學", "酷兒理論", "Z世代", "社會實踐"].map((kw) => (
+              {[
+                "Phenomenology",
+                "Queer Theory",
+                "Generation Z",
+                "Social Practice",
+              ].map((kw) => (
                 <span
                   key={kw}
                   className="text-xs font-bold tracking-wider text-white/50 border border-white/15 px-2.5 py-1 self-start"
@@ -197,7 +202,7 @@ export default function ProfilePage() {
           {/* Bottom: year */}
           <div>
             <p className="text-xs font-semibold tracking-widest text-white/20">
-              b. 1997 · 臺中
+              b. 1997 · Taichung
             </p>
           </div>
         </aside>
@@ -217,13 +222,18 @@ export default function ProfilePage() {
                 WU, TSUNG-TAI · Gôo tsong-tāi
               </p>
               <p className="text-white/60 text-base font-semibold">
-                當代藝術家，臺中，臺灣
+                Contemporary Artist, Taichung, Taiwan
               </p>
             </div>
 
             {/* Keywords */}
             <div className="flex flex-wrap gap-2">
-              {["現象學", "酷兒理論", "Z世代", "社會實踐"].map((kw) => (
+              {[
+                "Phenomenology",
+                "Queer Theory",
+                "Generation Z",
+                "Social Practice",
+              ].map((kw) => (
                 <span
                   key={kw}
                   className="text-xs font-bold tracking-wider text-white/50 border border-white/15 px-2.5 py-1"
@@ -280,14 +290,23 @@ export default function ProfilePage() {
           <section>
             <SectionLabel>Biography</SectionLabel>
             <p className="text-white/80 text-base leading-[2] font-semibold mt-6 max-w-xl">
-              生於1997年，現居臺中。其創作關注Z世代語境中性別與身分的流動性，作品游走於觀念藝術、裝置與社會實踐之間，並以社群媒體、ACG同人文化與Z世代價值觀等元素作為創作媒介，模糊藝術家作為單一創作者的界線。
+              Born in 1997, currently resides in Taichung. Hir artworks focus on
+              the fluidity of gender and identity in the language of Generation
+              Z; Gôo Tsong-tāi&apos;s pieces often toe the line between
+              conceptual art, installation art, and social practices, using
+              creative mediums such as social media, ACG doujin culture, and Gen
+              Z values. Ze blurs the boundaries of the artist, being viewed as a
+              one-dimensional creator, is their goal.
             </p>
             <p className="text-white/80 text-base leading-[2] font-semibold mt-4 max-w-xl">
-              2023年，以作品 <i>Bàn-tāi</i>{" "}
-              進入國際視野，入選首屆香港「藝術未來獎」亞洲優秀畢業生獎30位入圍者之一。創作足跡遍及臺灣、中國、荷蘭、澳洲與日本。
+              In 2023, Gôo Tsong-tāi gained international recognition through
+              hir piece <i>Bàn-tāi</i>, which was nominated as one of the 30
+              exceptional Asian graduate candidates of the inaugural Hong Kong
+              Art Future Awards. Gôo Tsong-tāi&apos;s works can be found in
+              Taiwan, China, the Netherlands, Australia, and Japan.
             </p>
             <p className="text-white/40 text-sm font-bold mt-6 tracking-widest">
-              臺灣 · 中國 · 荷蘭 · 澳洲 · 日本
+              Taiwan · China · Netherlands · Australia · Japan
             </p>
           </section>
 
@@ -296,18 +315,18 @@ export default function ProfilePage() {
             <SectionLabel>Education</SectionLabel>
             <div className="mt-6 space-y-8">
               <EducationItem
-                school="造形藝術研究所"
-                institution="國立臺南藝術大學"
+                school="MFA in Plastic Arts"
+                institution="Tainan National University of the Arts"
                 years="2021–2025"
               />
               <EducationItem
-                school="藝術與設計學系"
-                institution="國立東華大學"
+                school="BFA in Art and Design"
+                institution="National Dong Hwa University"
                 years="2015–2020"
               />
               <EducationItem
-                school="美術班"
-                institution="國立臺中第一高級中學"
+                school="Fine Arts Program"
+                institution="National Taichung First Senior High School"
                 years="2012–2015"
               />
             </div>
@@ -319,15 +338,16 @@ export default function ProfilePage() {
             <div className="mt-6 space-y-6">
               <AwardItem
                 year="2023"
-                title="藝術未來獎"
-                desc="第一屆亞洲優秀畢業生獎 30名入圍者，香港"
+                title="Art Futures Awards"
+                desc="Outstanding Graduate Award (Asia), Finalist · Hong Kong"
               />
               <AwardItem
                 year="2023"
-                title="陳啟川先生南藝造形藝術獎"
+                title="Mr. Chen Chi-Chuan TNNUA Plastic Arts Award"
                 desc={
                   <>
-                    <i>縣道171</i>，南藝大造形所期末展演，臺灣
+                    for <i>County Road 171</i>, Final Exhibition, Graduate
+                    Institute of Plastic Arts, TNNUA · Taiwan
                   </>
                 }
               />
@@ -346,17 +366,17 @@ export default function ProfilePage() {
                   <ExhibitionItem
                     year="2025"
                     title="𝄆3"
-                    location="臺中，臺灣"
+                    location="Taichung, Taiwan"
                   />
                   <ExhibitionItem
                     year="2022"
                     title="Bàn-tāi"
-                    location="臺南，臺灣"
+                    location="Tainan, Taiwan"
                   />
                   <ExhibitionItem
                     year="2022"
-                    title="幻日"
-                    location="花蓮、臺南，臺灣"
+                    title="Parhelion"
+                    location="Hualien & Tainan, Taiwan"
                   />
                 </div>
               </div>
@@ -368,70 +388,79 @@ export default function ProfilePage() {
                   {[
                     {
                       year: "2025",
-                      title: "亞洲三年展曼徹斯特 2025 研究研討會",
-                      subtitle: "第六屆曼徹斯特亞洲三年展",
+                      title: "Research Jam, Asia Triennial Manchester 2025",
+                      subtitle: "Asia Triennial Manchester (ATM6)",
                       location: "Manchester, United Kingdom",
                       titleIsItalic: false,
                     },
                     {
                       year: "2025",
-                      title: "偶像轉生計劃 Idoruru",
-                      subtitle: "臺中一中美術班研究所返校聯展",
-                      location: "臺中，臺灣",
+                      title: "Idoruru",
+                      subtitle:
+                        "Alumni Exhibition of Fine Arts Program, National Taichung First Senior High School",
+                      location: "Taichung, Taiwan",
                     },
                     {
                       year: "2024",
-                      title: "反覆演練Re-her-sal：觀眾入場",
-                      subtitle: "國藝會常態補助",
-                      location: "臺北，臺灣",
+                      title: "Re-her-sal: Audience Entry",
+                      subtitle:
+                        "National Culture and Arts Foundation Regular Grant",
+                      location: "Taipei, Taiwan",
                     },
                     {
                       year: "2024",
                       title: "Gemini ζ",
-                      subtitle: "南藝大造形所啟川獎",
-                      location: "高雄，臺灣",
+                      subtitle: "Chi-Chuan TNNUA Plastic Arts Award",
+                      location: "Kaohsiung, Taiwan",
                     },
                     {
                       year: "2023",
-                      title: "橫渡後，指向",
-                      subtitle: "南藝大造形所110級畢業聯展",
-                      location: "臺南，臺灣",
+                      title: "After Navigated—— Indicating",
+                      subtitle:
+                        "Graduation Exhibition, Class of 2021, Graduate Institute of Plastic Arts, TNNUA",
+                      location: "Tainan, Taiwan",
                     },
                     {
                       year: "2023",
-                      title: "讓故事永遠呈焦糖白霜",
-                      subtitle: "南藝大造形所期末展演",
-                      location: "臺南，臺灣",
+                      title:
+                        "Jang Ku-shih Yung-yuan Ch'eng Chiao-t'ang Pai-shuang",
+                      subtitle:
+                        "Final Exhibition, Graduate Institute of Plastic Arts, TNNUA",
+                      location: "Tainan, Taiwan",
                     },
                     {
                       year: "2023",
-                      title: "熟路si̍k-lōo",
-                      subtitle: "社仔廟埕影展",
-                      location: "臺南，臺灣",
+                      title: "Sı̍k-lōo",
+                      subtitle: "Shezi Film Festival",
+                      location: "Tainan, Taiwan",
                     },
                     {
                       year: "2023",
-                      title: "縣道171",
-                      subtitle: "南藝大造形所期末展演",
-                      location: "臺南，臺灣",
+                      title: "County Road 171",
+                      subtitle:
+                        "Final Exhibition, Graduate Institute of Plastic Arts, TNNUA",
+                      location: "Tainan, Taiwan",
                     },
                     {
                       year: "2022",
-                      title: "不由自主健康管理",
-                      subtitle: "南藝大造形所期末展演",
-                      location: "臺南，臺灣",
+                      title: "Involuntary Health Management",
+                      subtitle:
+                        "Final Exhibition, Graduate Institute of Plastic Arts, TNNUA",
+                      location: "Tainan, Taiwan",
                     },
                     {
                       year: "2021",
-                      title: "水秀山莊",
-                      subtitle: "南藝大造形所期末展演",
-                      location: "臺南，臺灣",
+                      title: "Shui-hsiu Villa",
+                      subtitle:
+                        "Final Exhibition, Graduate Institute of Plastic Arts, TNNUA",
+                      location: "Tainan, Taiwan",
                     },
                     {
                       year: "2021",
-                      title: "連結怎麼打不開",
-                      subtitle: "南藝大造形所新生展演",
-                      location: "臺南，臺灣",
+                      title: "Why Can't the Link Be Opened",
+                      subtitle:
+                        "First-Year Graduate Exhibition, Graduate Institute of Plastic Arts, TNNUA",
+                      location: "Tainan, Taiwan",
                     },
                   ].map((item) => (
                     <ExhibitionItem key={item.title} {...item} />
@@ -452,11 +481,12 @@ export default function ProfilePage() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    《Bàn-tāi》
+                    <i>Bàn-tāi</i>
                   </a>
                 </p>
                 <p className="text-white/45 text-sm font-semibold mt-1">
-                  新北市：島座放送，2025.09 ／ ISBN 978-626-99354-6-8
+                  New Taipei City: Dao Zuo Publishing, September 2025 / ISBN
+                  978-626-99354-6-8
                 </p>
               </div>
               <div>
@@ -466,11 +496,12 @@ export default function ProfilePage() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    〈自我媒介化〉 <i>Self-Mediatization</i>
+                    <i>Self-Mediatization</i>
                   </a>
                 </p>
                 <p className="text-white/45 text-sm font-semibold mt-1">
-                  碩士論文，國立臺南藝術大學造形藝術研究所，2025.04
+                  MFA thesis, Graduate Institute of Plastic Arts, Tainan
+                  National University of the Arts, April 2025
                 </p>
               </div>
             </div>
@@ -481,10 +512,10 @@ export default function ProfilePage() {
             <SectionLabel>Residency</SectionLabel>
             <div className="mt-6">
               <p className="text-white/85 text-base font-bold">
-                荷蘭藝宿計畫 Art residency in the Netherlands
+                Art residency in the Netherlands
               </p>
               <p className="text-white/40 text-sm font-semibold mt-1">
-                荷蘭，2024.06.22 – 2024.07.17
+                The Netherlands, 22 June 2024 – 17 July 2024
               </p>
             </div>
           </section>
@@ -496,45 +527,56 @@ export default function ProfilePage() {
               {[
                 {
                   title: (
-                    <>當弔詭不再是弔詭：來自「{<i>Gemini Z</i>}」的延伸思考</>
+                    <>
+                      When Paradoxes Are No More Paradoxes: Extended Thoughts
+                      from <i>Gemini Z</i>,&rdquo;
+                    </>
                   ),
-                  pub: "張碩尹/AOFA.TW",
-                  date: "2025.01",
+                  pub: "Zhang, Shuo-yin/AOFA.TW",
+                  date: "January 2025",
                   href: "https://aofa.tw/?p=6161",
                 },
                 {
                   title: (
                     <>
-                      「外星球」降落台南火車站？原來是藝術創作品「
-                      {<i>泌乳媽</i>}」
+                      &ldquo;Alien planet&rdquo; landing at Tainan Railway
+                      Station? It turned out to be the artistic creation &ldquo;
+                      <i>Ma. lactation</i>&rdquo;
                     </>
                   ),
-                  pub: "自由時報",
-                  date: "2023.10",
+                  pub: "Liberty Times",
+                  date: "October 2023",
                   href: "https://news.ltn.com.tw/news/life/breakingnews/4458870",
                 },
                 {
                   title: (
                     <>
-                      酷不酷盡在不言中：關於吳宗岱《{<i>Bàn-tāi</i>}
-                      》與藝術「政確」的問題
+                      Queer or Not is Beyond Words: Gôo Tsong-tāi&apos;s &ldquo;
+                      <i>Bàn-tāi</i>&rdquo; and Issues with Art&apos;s Political
+                      Correctness
                     </>
                   ),
-                  pub: "張文豪/ArtTouch",
-                  date: "2023.02",
+                  pub: "Zhang, Wen-hao/ArtTouch",
+                  date: "February 2023",
                   href: "https://artouch.com/art-views/content-96414.html",
                 },
                 {
                   title:
-                    "清涼照被臉書錯BAN？人類、AI都錯亂？台南藝術看板挑戰真實審查",
-                  pub: "公視 P#新聞實驗室",
-                  date: "2023.02",
+                    "Cool photo was wrongly banned by Facebook? Are humans and AI confused? Tainan art billboard challenges real censorship",
+                  pub: "PTV P# News Lab",
+                  date: "February 2023",
                   href: "https://youtu.be/7Pd-RONl2MA",
                 },
                 {
-                  title: "「裸露照」高掛農村路口！藝術創作遭檢舉2/5提前拆",
+                  title: (
+                    <>
+                      &ldquo;Naked photos&rdquo; hang high at rural
+                      intersections! Art creation was reported and dismantled
+                      early on 2/5
+                    </>
+                  ),
                   pub: "TVBS",
-                  date: "2023.01",
+                  date: "January 2023",
                   href: "https://news.tvbs.com.tw/life/2010783",
                 },
               ].map((item, i) => (
@@ -549,23 +591,25 @@ export default function ProfilePage() {
             <div className="mt-6 space-y-6">
               <GrantItem
                 year="2025"
-                title="偶像轉生計劃 Idoruru"
-                org="臺中一中 2025 計畫補助"
+                title="Idoruru"
+                org="Taichung First Senior High School Educational Program · 2025"
               />
               <GrantItem
                 year="2024"
-                title="《project愛國婦人會》創作計畫"
-                org="國藝會 2024 常態補助"
+                title=<>
+                  Project <i>Patriotic Women's Association</i>
+                </>
+                org="National Culture and Arts Foundation Regular Funding · 2024"
               />
               <GrantItem
                 year="2024"
-                title="偶像轉生計劃 Idoruru"
-                org="凱昇藝術中心 2024 計畫徵件"
+                title="Idoruru"
+                org="Open Call, Kaiser Art Gallery · 2024"
               />
               <GrantItem
                 year="2021"
-                title="私人 2021 助學計畫"
-                org="私人企業 助學計畫"
+                title="Full Creative Grant for Graduate Practice"
+                org="Private Scholarship · 2021"
               />
             </div>
           </section>
@@ -576,39 +620,69 @@ export default function ProfilePage() {
             <div className="mt-6 space-y-5">
               {[
                 {
-                  date: "2026.02",
-                  title: "《Bàn-tāi》吳宗岱粉絲見面簽書會",
-                  venue: "第34屆台北國際書展",
-                  location: "臺北",
+                  date: "February 2026",
+                  title: (
+                    <>
+                      <i>Bàn-tāi</i>: Book Signing and Meet-and-Greet with Gôo
+                      tsong-tāi
+                    </>
+                  ),
+                  venue: "Taipei International Book Exhibition (34th Edition)",
+                  location: "Taipei",
                 },
                 {
-                  date: "2025.12",
-                  title: "《Bàn-tāi》系列座談第三彈 吳宗岱寫真新書發表會",
-                  venue: "臺北田園城市生活風格書店",
-                  location: "臺北",
+                  date: "December 2025",
+                  title: (
+                    <>
+                      <i>Bàn-tāi</i>: Photobook Launch Series, Third Round with
+                      Gôo tsong-tāi
+                    </>
+                  ),
+                  venue: "Garden City Publishers Bookstore",
+                  location: "Taipei",
                 },
                 {
-                  date: "2025.11",
-                  title: "《Bàn-tāi》系列座談第二彈 吳宗岱寫真新書發表會",
-                  venue: "莫伊 voi ch. · YouTube串流直播",
+                  date: "November 2025",
+                  title: (
+                    <>
+                      <i>Bàn-tāi</i>: Photobook Launch Series, Second Round with
+                      Gôo tsong-tāi
+                    </>
+                  ),
+                  venue: "voi ch. · YouTube Live Stream",
                   url: "https://www.youtube.com/live/4jHS5zaZ-7c?si=fpwe4OJeSiY2OI_p",
                 },
                 {
-                  date: "2025.11",
-                  title: "《Bàn-tāi》系列座談第一彈 吳宗岱寫真新書發表會",
-                  venue: "臺北田園城市生活風格書店",
-                  location: "臺北",
+                  date: "November 2025",
+                  title: (
+                    <>
+                      <i>Bàn-tāi</i>: Photobook Launch Series, First Round with
+                      Gôo tsong-tāi
+                    </>
+                  ),
+                  venue: "Garden City Publishers Bookstore",
+                  location: "Taipei",
                 },
                 {
-                  date: "2024.11",
-                  title: "《Bàn-tāi》吳宗岱藝術家講座",
-                  venue: "國立彰化師範大學美術學系",
+                  date: "November 2024",
+                  title: (
+                    <>
+                      <i>Bàn-tāi</i>: Artist Talk with Gôo tsong-tāi
+                    </>
+                  ),
+                  venue:
+                    "Department of Fine Arts, National Changhua University of Education",
                 },
                 {
-                  date: "2023.10",
-                  title:
-                    "《我變性故我在》X誰跟你變性，我是性別確認！但，然後呢？",
-                  venue: "YouTube串流節目 · 公視：主題之夜SHOW",
+                  date: "October 2023",
+                  title: (
+                    <>
+                      &ldquo;I am transgender, therefore I am&rdquo; × Who is
+                      transgender with you? I am gender confirmed! But, then
+                      what?
+                    </>
+                  ),
+                  venue: "YouTube Streaming · Theme Night SHOW, PTS",
                   url: "https://www.youtube.com/live/f5RnJ8Vn1KU?si=UYpoaSPn_o2Pv8nG",
                 },
               ].map((item, i) => (
@@ -693,7 +767,10 @@ function ExhibitionItem({
   titleIsItalic?: boolean;
 }) {
   return (
-    <div className="flex items-start justify-between gap-4">
+    <div className="flex gap-6">
+      <span className="text-sm font-bold text-white/30 shrink-0 pt-0.5">
+        {year}
+      </span>
       <div>
         <p
           className={`text-white/80 text-base font-bold ${titleIsItalic ? "italic" : ""}`}
@@ -707,7 +784,6 @@ function ExhibitionItem({
         )}
         <p className="text-white/35 text-sm font-semibold mt-0.5">{location}</p>
       </div>
-      <span className="text-sm font-bold text-white/30 shrink-0">{year}</span>
     </div>
   );
 }
@@ -746,7 +822,7 @@ function GrantItem({
   org,
 }: {
   year: string;
-  title: string;
+  title: React.ReactNode;
   org: string;
 }) {
   return (
@@ -755,7 +831,7 @@ function GrantItem({
         <p className="text-white/80 text-base font-bold">{title}</p>
         <p className="text-white/35 text-sm font-semibold mt-0.5">
           {org}
-          {year ? `· ${year}` : ""}
+          {year ? ` · ${year}` : ""}
         </p>
       </div>
     </div>
@@ -776,18 +852,17 @@ function TalkItem({
   location?: string;
 }) {
   const element = (
-    <>
-      <div>
-        <div className="text-white/80 text-base font-bold leading-relaxed italic">
-          {title}
-        </div>
-        <p className="text-white/35 text-sm font-semibold mt-0.5">
-          {venue}
-          {location ? ` · ${location}` : ""} · {date}
-        </p>
+    <div>
+      <div className="text-white/80 text-base font-bold leading-relaxed italic">
+        {title}
       </div>
-    </>
+      <p className="text-white/35 text-sm font-semibold mt-0.5">
+        {venue}
+        {location ? ` · ${location}` : ""} · {date}
+      </p>
+    </div>
   );
+
   return url ? (
     <div className="flex gap-6">
       <a href={url} target="_blank" rel="noopener noreferrer">
