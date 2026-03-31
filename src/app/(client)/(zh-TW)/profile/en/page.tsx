@@ -117,14 +117,14 @@ export default function ProfilePage() {
               <p className="text-xs font-bold tracking-[0.3em] text-white/40 uppercase mb-3">
                 Artist
               </p>
-              <h1 className="text-5xl font-black text-white leading-tight">
-                吳宗岱
+              <h1 className="text-4xl font-black text-white leading-tight">
+                Gôo tsong-tāi
               </h1>
               <p className="text-sm font-bold text-white/50 mt-2 tracking-widest">
                 WU, TSUNG-TAI
               </p>
               <p className="text-sm font-bold text-white/50 tracking-widest">
-                Gôo tsong-tāi
+                吳宗岱
               </p>
             </div>
 
@@ -216,10 +216,10 @@ export default function ProfilePage() {
                 Artist
               </p>
               <h1 className="text-5xl font-black text-white leading-tight">
-                吳宗岱
+                Gôo tsong-tāi
               </h1>
               <p className="text-sm font-bold text-white/50 tracking-widest">
-                WU, TSUNG-TAI · Gôo tsong-tāi
+                WU, TSUNG-TAI · 吳宗岱
               </p>
               <p className="text-white/60 text-base font-semibold">
                 Contemporary Artist, Taichung, Taiwan
