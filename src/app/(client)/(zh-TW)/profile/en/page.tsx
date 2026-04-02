@@ -477,7 +477,7 @@ export default function ProfilePage() {
               <div>
                 <p className="text-white/85 text-base font-bold leading-relaxed">
                   <a
-                    href="https://isbn.ncl.edu.tw/NEW_ISBNNet/main_DisplayRecord.php?&Pact=Display&Pstart=1"
+                    href="https://indiepublisher.tw/zh-hant/book/2178 "
                     target="_blank"
                     rel="noopener noreferrer"
                   >

@@ -1,5 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Geist_Mono, Noto_Sans_TC, Playfair_Display } from "next/font/google";
+import {
+  Geist_Mono,
+  Noto_Sans_TC,
+  Parisienne,
+  Playfair_Display,
+} from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
@@ -12,6 +17,12 @@ const notoSansTC = Noto_Sans_TC({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const parisienne = Parisienne({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-parisienne",
 });
 
 const playfairDisplay = Playfair_Display({
@@ -45,6 +56,7 @@ export default function RootLayout({
         notoSansTC.variable,
         geistMono.variable,
         playfairDisplay.variable,
+        parisienne.variable,
       )}
     >
       <head>
