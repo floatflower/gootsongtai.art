@@ -14,7 +14,7 @@ export function MouseGlow() {
     const onMove = (e: MouseEvent) => {
       pos.current = { x: e.clientX, y: e.clientY };
       const isRight = e.clientX > window.innerWidth / 2;
-      el.style.background = isRight ? "#feddb0" : "#ecb8c2";
+      el.style.background = isRight ? "#f1f294" : "#ffafb2";
     };
 
     const tick = () => {
@@ -40,7 +40,7 @@ export function MouseGlow() {
       style={{
         width: 80,
         height: 80,
-        background: "#ecb8c2",
+        background: "#f1f294",
         transition: "background 0.8s ease",
         willChange: "transform",
       }}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { routes } from "@/lib/routes";
 import { MouseGlow } from "./_components/mouse-glow";
+import { TaiwanMap } from "./_components/taiwan-map";
 
 export const metadata: Metadata = {
   title: "幻日 Parhelion | Gôo tsong-tāi",
@@ -125,13 +126,7 @@ export default function ParhelionPage() {
       </section>
 
       {/* Map */}
-      <section className="relative z-[2] px-6 md:px-16 py-4 max-w-3xl mx-auto">
-        <img
-          src="/images/parhelion/map.webp"
-          alt="花蓮至臺南路線圖"
-          className="w-full rounded-2xl"
-        />
-      </section>
+      <TaiwanMap />
 
       {/* 作品牌 */}
       <section className="relative z-[2] px-6 md:px-16 py-4 max-w-3xl mx-auto">
