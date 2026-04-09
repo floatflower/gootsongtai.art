@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { routes } from "@/lib/routes";
 import { MouseGlow } from "./_components/mouse-glow";
 import { TaiwanMap } from "./_components/taiwan-map";
+import { SphereGallery } from "./_components/sphere-gallery";
 
 export const metadata: Metadata = {
   title: "幻日 Parhelion | Gôo tsong-tāi",
@@ -139,35 +140,7 @@ export default function ParhelionPage() {
       </section>
 
       {/* 圖說資訊 */}
-      <section className="relative z-[2] px-6 md:px-16 py-4 max-w-3xl mx-auto">
-        <p className="text-sm font-bold leading-[1.9] text-white mb-8">
-          2022.03.05 驚蟄（六）
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div>
-            <p className="text-xs tracking-[0.3em] font-black uppercase mb-4 text-white/70">
-              日出 · Dawn
-            </p>
-            <p className="text-base font-bold mb-1 text-white">貓霧光</p>
-            <p className="text-xs font-normal italic mb-3 text-white/70">
-              bâ-bū-á-kng
-            </p>
-            <p className="text-sm font-semibold mb-1 text-white">07:00–08:00</p>
-            <p className="text-sm font-bold text-white">花蓮－國立東華大學</p>
-          </div>
-          <div>
-            <p className="text-xs tracking-[0.3em] font-black uppercase mb-4 text-white/70">
-              日落 · Dusk
-            </p>
-            <p className="text-base font-bold mb-1 text-white">暗雯光</p>
-            <p className="text-xs font-normal italic mb-3 text-white/70">
-              àm-bûn-á-kng
-            </p>
-            <p className="text-sm font-semibold mb-1 text-white">17:00–18:00</p>
-            <p className="text-sm font-bold text-white">臺南－臺南藝術大學</p>
-          </div>
-        </div>
-      </section>
+      <SphereGallery />
 
       {/* 內容 */}
       <section className="relative z-[2] px-6 md:px-16 py-4 max-w-3xl mx-auto">
