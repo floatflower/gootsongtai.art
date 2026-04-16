@@ -2,147 +2,126 @@
 
 import { useState } from "react";
 
-type Active = "dawn" | "dusk" | null;
-
-/*
- * Element is fixed; left:50%; top:50%; width:60vh; height:60vh.
- * translate(-50%,-50%) centers the sphere at the viewport center.
- * All keyframes express displacement from that center position.
- *
- * Ellipse parameters used for the arc:
- *   semi-major (horizontal) a ≈ 32vw
- *   semi-minor (vertical)   b ≈ 26vh
- *   orbit center            ≈ viewport center + (0, 14vh)
- *
- * 8 evenly-spaced points are sampled along the upper half of the ellipse.
- * Dawn  : starts lower-right  → sweeps CCW → arrives at viewport center
- * Dusk  : mirror (starts lower-left → CW)
- */
-const styles = `
-  @keyframes sphere-float-1 {
-    0%, 100% { transform: translateY(0px) rotate(2deg); }
-    50%       { transform: translateY(-12px) rotate(-1.5deg); }
-  }
-  @keyframes sphere-float-2 {
-    0%, 100% { transform: translateY(-6px) rotate(-2.5deg); }
-    55%      { transform: translateY(8px) rotate(2deg); }
-  }
-  .sphere-float-1 { animation: sphere-float-1 6s ease-in-out infinite; }
-  .sphere-float-2 { animation: sphere-float-2 7.5s ease-in-out infinite; }
-
-  @keyframes sphere-in {
-    from { transform: translate(-50%, -50%) scale(0.15); opacity: 0; }
-    to   { transform: translate(-50%, -50%) scale(1);    opacity: 1; }
-  }
-  .orbit-dawn, .orbit-dusk {
-    animation: sphere-in 0.5s cubic-bezier(0.34, 1.3, 0.64, 1) forwards;
-  }
-`;
-
 export function SphereGallery() {
-  const [active, setActive] = useState<Active>(null);
-
-  const toggle = (which: "dawn" | "dusk") =>
-    setActive((prev) => (prev === which ? null : which));
+  const [isDusk, setIsDusk] = useState(false);
 
   return (
-    <>
-      <style>{styles}</style>
+    <section className="relative z-[2] px-6 md:px-16 py-4 max-w-3xl mx-auto">
+      <p className="text-sm font-bold leading-[1.9] text-white mb-6">
+        2022.03.05 驚蟄（六）
+      </p>
 
-      {/* Backdrop */}
-      {active && (
-        <div
-          className="fixed inset-0 z-[50] bg-black/20 backdrop-blur-[2px]"
-          onClick={() => setActive(null)}
-        />
-      )}
-
-      {/* Orbit sphere — fixed, left:50% top:50% as anchor */}
-      {active && (
-        <div
-          key={active}
-          className={`fixed z-[51] pointer-events-none ${
-            active === "dawn" ? "orbit-dawn" : "orbit-dusk"
-          }`}
-          style={{ left: "50%", top: "50%", width: "60vh", height: "60vh" }}
-        >
-          <img
-            src={`/images/parhelion/sphere0${active === "dawn" ? "1" : "2"}.png`}
-            alt={active === "dawn" ? "日出・花蓮" : "日落・臺南"}
-            className="w-full h-full rounded-full"
-            draggable={false}
-          />
-        </div>
-      )}
-
-      {/* Section */}
-      <section
-        className="relative z-[2] px-6 md:px-16 py-4 max-w-3xl mx-auto"
-        style={{ overflow: "visible" }}
+      {/*
+       * Sphere width = 40% of track width (CSS percentage).
+       * Track height is fixed; sphere fills it top-to-bottom and is
+       * square via aspect-ratio so the circular PNG stays circular.
+       * We use aspect-ratio:1 + height:100% on the thumb, which means
+       * the track height must be at least as tall as 40%-wide sphere —
+       * so we let the track height auto-size via padding instead.
+       */}
+      <div
+        className="relative rounded-full"
+        style={{
+          paddingTop: "40%",
+          background: isDusk ? "#ffafb2" : "#f1f294",
+          transition: "background 0.6s ease",
+          boxShadow:
+            "inset 0 4px 10px rgba(0,0,0,0.28), inset 0 1px 4px rgba(0,0,0,0.16)",
+          border: "1.5px solid rgba(0,0,0,0.10)",
+        }}
       >
-        {/* Floating sphere 01 — Dawn */}
+        {/* ── Dawn info — right side (yellow bg → dark text) ── */}
         <div
-          className="absolute pointer-events-none"
+          className="absolute flex flex-col items-center text-center"
           style={{
-            right: "16px", top: "10px", width: "115px",
-            opacity: active === "dawn" ? 0 : 0.28,
-            zIndex: 1,
-            transition: "opacity 0.4s ease",
+            top: "50%",
+            left: "calc(40% + 16px)",
+            right: 24,
+            transform: isDusk ? "translateY(-50%) translateX(8px)" : "translateY(-50%) translateX(0)",
+            opacity: isDusk ? 0 : 1,
+            transition: "opacity 0.3s ease, transform 0.3s ease",
+            pointerEvents: isDusk ? "none" : "auto",
           }}
         >
-          <div className="sphere-float-1">
-            <img src="/images/parhelion/sphere01.png" alt=""
-              className="w-full rounded-full select-none" draggable={false} />
-          </div>
+          <p className="text-[10px] tracking-[0.3em] font-black uppercase mb-2 text-black/45">
+            日出 · Dawn
+          </p>
+          <p className="text-base font-bold mb-0.5 text-black/80">貓霧光</p>
+          <p className="text-xs font-normal italic mb-2 text-black/45">
+            bâ-bū-á-kng
+          </p>
+          <p className="text-sm font-semibold mb-0.5 text-black/65">07:00–08:00</p>
+          <p className="text-sm font-bold text-black/80">花蓮－國立東華大學</p>
         </div>
 
-        {/* Floating sphere 02 — Dusk */}
+        {/* ── Dusk info — left side (pink bg → white text) ──── */}
         <div
-          className="absolute pointer-events-none"
+          className="absolute flex flex-col items-center text-center"
           style={{
-            left: "16px", top: "30px", width: "115px",
-            opacity: active === "dusk" ? 0 : 0.28,
-            zIndex: 1,
-            transition: "opacity 0.4s ease",
+            top: "50%",
+            left: 24,
+            right: "calc(40% + 16px)",
+            transform: isDusk ? "translateY(-50%) translateX(0)" : "translateY(-50%) translateX(-8px)",
+            opacity: isDusk ? 1 : 0,
+            transition: "opacity 0.3s ease, transform 0.3s ease",
+            pointerEvents: isDusk ? "auto" : "none",
           }}
         >
-          <div className="sphere-float-2">
-            <img src="/images/parhelion/sphere02.png" alt=""
-              className="w-full rounded-full select-none" draggable={false} />
-          </div>
+          <p className="text-[10px] tracking-[0.3em] font-black uppercase mb-2 text-white/60">
+            日落 · Dusk
+          </p>
+          <p className="text-base font-bold mb-0.5 text-white">暗雯光</p>
+          <p className="text-xs font-normal italic mb-2 text-white/60">
+            àm-bûn-á-kng
+          </p>
+          <p className="text-sm font-semibold mb-0.5 text-white/80">17:00–18:00</p>
+          <p className="text-sm font-bold text-white">臺南－臺南藝術大學</p>
         </div>
 
-        {/* Text */}
-        <p className="relative z-10 text-sm font-bold leading-[1.9] text-white mb-8">
-          2022.03.05 驚蟄（六）
-        </p>
-        <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div>
-            <button
-              className="text-xs tracking-[0.3em] font-black uppercase mb-4 text-white/70 hover:text-white transition-colors cursor-pointer text-left"
-              onClick={() => toggle("dawn")}
-            >
-              日出 · Dawn
-            </button>
-            <p className="text-base font-bold mb-1 text-white">貓霧光</p>
-            <p className="text-xs font-normal italic mb-3 text-white/70">bâ-bū-á-kng</p>
-            <p className="text-sm font-semibold mb-1 text-white">07:00–08:00</p>
-            <p className="text-sm font-bold text-white">花蓮－國立東華大學</p>
-          </div>
-          <div>
-            <button
-              className="text-xs tracking-[0.3em] font-black uppercase mb-4 text-white/70 hover:text-white transition-colors cursor-pointer text-left"
-              onClick={() => toggle("dusk")}
-            >
-              日落 · Dusk
-            </button>
-            <p className="text-base font-bold mb-1 text-white">暗雯光</p>
-            <p className="text-xs font-normal italic mb-3 text-white/70">àm-bûn-á-kng</p>
-            <p className="text-sm font-semibold mb-1 text-white">17:00–18:00</p>
-            <p className="text-sm font-bold text-white">臺南－臺南藝術大學</p>
-          </div>
-        </div>
-      </section>
-    </>
+        {/* ── Sphere thumb — 40% wide, 6px inset padding ───── */}
+        <button
+          onClick={() => setIsDusk((d) => !d)}
+          aria-label={isDusk ? "切換至日出" : "切換至日落"}
+          className="absolute z-10 cursor-pointer select-none"
+          style={{
+            top: 6,
+            bottom: 6,
+            /* width shrinks by 6px on each side to leave gap from track edge */
+            width: "calc(40% - 12px)",
+            left: isDusk ? "calc(60% + 6px)" : 6,
+            transition: "left 0.6s cubic-bezier(0.65, 0, 0.35, 1)",
+            background: "none",
+            border: "none",
+            padding: 0,
+            /* drop-shadow follows the circular PNG shape */
+            filter:
+              "drop-shadow(0 4px 14px rgba(0,0,0,0.32)) drop-shadow(0 2px 4px rgba(0,0,0,0.18))",
+          }}
+        >
+          {/* sphere01 — Dawn */}
+          <img
+            src="/images/parhelion/sphere01.png"
+            alt=""
+            draggable={false}
+            className="absolute inset-0 w-full h-full object-contain"
+            style={{
+              opacity: isDusk ? 0 : 1,
+              transition: "opacity 0.4s ease",
+            }}
+          />
+          {/* sphere02 — Dusk */}
+          <img
+            src="/images/parhelion/sphere02.png"
+            alt=""
+            draggable={false}
+            className="absolute inset-0 w-full h-full object-contain"
+            style={{
+              opacity: isDusk ? 1 : 0,
+              transition: "opacity 0.4s ease",
+            }}
+          />
+        </button>
+      </div>
+    </section>
   );
 }
