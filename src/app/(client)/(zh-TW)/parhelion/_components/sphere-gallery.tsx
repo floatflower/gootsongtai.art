@@ -6,8 +6,8 @@ export function SphereGallery() {
   const [isDusk, setIsDusk] = useState(false);
 
   return (
-    <section className="relative z-[2] px-6 md:px-16 py-4 max-w-3xl mx-auto">
-      <p className="text-sm font-bold leading-[1.9] text-white mb-6">
+    <section className="relative z-[2] px-6 md:px-16 py-4 max-w-5xl mx-auto w-full">
+      <p className="text-xs md:text-base font-bold leading-[1.9] text-white mb-4 md:mb-8">
         2022.03.05 驚蟄（六）
       </p>
 
@@ -37,21 +37,29 @@ export function SphereGallery() {
             top: "50%",
             left: "calc(40% + 16px)",
             right: 24,
-            transform: isDusk ? "translateY(-50%) translateX(8px)" : "translateY(-50%) translateX(0)",
+            transform: isDusk
+              ? "translateY(-50%) translateX(8px)"
+              : "translateY(-50%) translateX(0)",
             opacity: isDusk ? 0 : 1,
             transition: "opacity 0.3s ease, transform 0.3s ease",
             pointerEvents: isDusk ? "none" : "auto",
           }}
         >
-          <p className="text-[10px] tracking-[0.3em] font-black uppercase mb-2 text-black/45">
+          <p className="text-[9px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] font-black uppercase mb-1 md:mb-3 text-black/45">
             日出 · Dawn
           </p>
-          <p className="text-base font-bold mb-0.5 text-black/80">貓霧光</p>
-          <p className="text-xs font-normal italic mb-2 text-black/45">
+          <p className="text-sm md:text-2xl font-bold mb-0.5 md:mb-1 text-black/80">
+            貓霧光
+          </p>
+          <p className="text-[10px] md:text-sm font-normal italic mb-1 md:mb-3 text-black/45">
             bâ-bū-á-kng
           </p>
-          <p className="text-sm font-semibold mb-0.5 text-black/65">07:00–08:00</p>
-          <p className="text-sm font-bold text-black/80">花蓮－國立東華大學</p>
+          <p className="text-[10px] md:text-base font-semibold mb-0.5 md:mb-1 text-black/65">
+            07:00–08:00
+          </p>
+          <p className="text-[10px] md:text-base font-bold text-black/80 leading-tight">
+            花蓮－國立東華大學
+          </p>
         </div>
 
         {/* ── Dusk info — left side (pink bg → white text) ──── */}
@@ -61,21 +69,29 @@ export function SphereGallery() {
             top: "50%",
             left: 24,
             right: "calc(40% + 16px)",
-            transform: isDusk ? "translateY(-50%) translateX(0)" : "translateY(-50%) translateX(-8px)",
+            transform: isDusk
+              ? "translateY(-50%) translateX(0)"
+              : "translateY(-50%) translateX(-8px)",
             opacity: isDusk ? 1 : 0,
             transition: "opacity 0.3s ease, transform 0.3s ease",
             pointerEvents: isDusk ? "auto" : "none",
           }}
         >
-          <p className="text-[10px] tracking-[0.3em] font-black uppercase mb-2 text-white/60">
+          <p className="text-[9px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] font-black uppercase mb-1 md:mb-3 text-white/60">
             日落 · Dusk
           </p>
-          <p className="text-base font-bold mb-0.5 text-white">暗雯光</p>
-          <p className="text-xs font-normal italic mb-2 text-white/60">
+          <p className="text-sm md:text-2xl font-bold mb-0.5 md:mb-1 text-white">
+            暗雯光
+          </p>
+          <p className="text-[10px] md:text-sm font-normal italic mb-1 md:mb-3 text-white/60">
             àm-bûn-á-kng
           </p>
-          <p className="text-sm font-semibold mb-0.5 text-white/80">17:00–18:00</p>
-          <p className="text-sm font-bold text-white">臺南－臺南藝術大學</p>
+          <p className="text-[10px] md:text-base font-semibold mb-0.5 md:mb-1 text-white/80">
+            17:00–18:00
+          </p>
+          <p className="text-[10px] md:text-base font-bold text-white leading-tight">
+            臺南－臺南藝術大學
+          </p>
         </div>
 
         {/* ── Sphere thumb — 40% wide, 6px inset padding ───── */}
