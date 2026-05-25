@@ -78,41 +78,42 @@ export default function ParhelionPage() {
         ))}
       </nav>
 
-      {/* Slide 1 — Logo + Slogan */}
-      <section className="snap-start relative z-[2] h-screen flex flex-col items-center justify-center px-6 gap-10">
+      {/* Slide 1 — Logo */}
+      <section className="snap-start relative z-[2] h-screen flex flex-col items-center justify-center px-6">
         <img
           src="/images/parhelion/title.webp"
           alt="幻日 Parhelion"
           className="w-auto max-w-lg"
           style={{ maxHeight: "55vh" }}
         />
-        <div className="flex items-start justify-center gap-2 max-w-2xl px-4">
+      </section>
+
+      {/* Slide 2 — Slogan */}
+      <section className="snap-start relative z-[2] h-screen flex items-center justify-center px-6">
+        <div className="flex items-center justify-center gap-2 max-w-2xl px-4">
           <span
             className="select-none text-white/30 shrink-0"
             style={{
-              fontSize: "8rem",
+              fontSize: "10rem",
               lineHeight: 0.4,
               fontFamily: "var(--font-parisienne)",
-              transform: "translateX(-1.5rem)",
+              transform: "translate(-2rem, 3rem)",
             }}
             aria-hidden="true"
           >
             {"“"}
           </span>
-          <p
-            className="text-base sm:text-lg font-semibold text-white leading-[2.2] relative text-center"
-            style={{ transform: "translateY(-2.5rem)" }}
-          >
+          <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-white leading-[2.2] relative text-center italic">
             過去在花蓮讀書是能看見日出而看不見日落，在南藝大剛好相反。
             同樣的太陽在不同的空間與時間，卻如輪迴般出現。
           </p>
           <span
             className="select-none text-white/30 shrink-0"
             style={{
-              fontSize: "8rem",
+              fontSize: "10rem",
               lineHeight: 0.4,
               fontFamily: "var(--font-parisienne)",
-              transform: "translateX(-0.5rem)",
+              transform: "translate(-1rem, 3rem)",
             }}
             aria-hidden="true"
           >
@@ -121,27 +122,27 @@ export default function ParhelionPage() {
         </div>
       </section>
 
-      {/* Slide 2 — Map (300vh internal scroll preserved) */}
+      {/* Slide 3 — Map (300vh internal scroll preserved) */}
       <div id="parhelion-map" className="snap-start">
         <TaiwanMap />
       </div>
 
-      {/* Slide 3 — Trigger (SphereGallery centered) */}
+      {/* Slide 4 — Trigger (SphereGallery centered) */}
       <section className="snap-start relative z-[2] h-screen flex items-center justify-center">
         <SphereGallery />
       </section>
 
-      {/* Slide 4 — Scattered color-ticket photos (202112) */}
+      {/* Slide 5 — Scattered color-ticket photos (202112) */}
       <section className="snap-start relative z-[2] h-screen overflow-hidden">
         <ScatteredGallery />
       </section>
 
-      {/* Slide 5 — Fan color-ticket photos (202201) */}
+      {/* Slide 6 — Fan color-ticket photos (202201) */}
       <section className="snap-start relative z-[2] h-screen overflow-hidden">
         <FanGallery />
       </section>
 
-      {/* Slide 6 — Rest */}
+      {/* Slide 7 — Rest */}
       <section className="snap-start relative z-[2] min-h-screen flex flex-col justify-center py-20">
         {/* 作品牌 */}
         <div className="px-6 md:px-16 py-4 max-w-3xl mx-auto w-full">

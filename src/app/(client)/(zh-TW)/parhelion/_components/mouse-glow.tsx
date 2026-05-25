@@ -36,7 +36,7 @@ export function MouseGlow() {
   return (
     <div
       ref={ref}
-      className="pointer-events-none fixed top-0 left-0 z-[1] rounded-full"
+      className="pointer-events-none fixed top-0 left-0 z-[1] rounded-full hidden md:block"
       style={{
         width: 80,
         height: 80,

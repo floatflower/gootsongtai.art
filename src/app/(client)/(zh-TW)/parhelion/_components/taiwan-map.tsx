@@ -282,16 +282,24 @@ export function TaiwanMap() {
       style={{ height: "300vh" }}
     >
       <div className="sticky top-0 h-screen flex items-center justify-center px-6 md:px-16">
-        <div
-          className="w-full max-w-3xl rounded-2xl overflow-hidden"
-          style={{ height: 430 }}
-        >
-          <style>{styles}</style>
-          <svg
-            ref={svgRef}
-            className="parhelion-map w-full h-full"
-            style={{ display: "block" }}
-          />
+        <div className="w-full max-w-3xl">
+          <div
+            className="w-full rounded-2xl overflow-hidden"
+            style={{ height: 430 }}
+          >
+            <style>{styles}</style>
+            <svg
+              ref={svgRef}
+              className="parhelion-map w-full h-full"
+              style={{ display: "block" }}
+            />
+          </div>
+          <div className="flex flex-col gap-1 mt-4 text-white">
+            <p className="text-sm font-bold tracking-wide italic">幻日</p>
+            <p className="text-xs font-semibold tracking-wide">
+              2022，以水泥漆木板自花蓮至臺南的移動過程，180×180cm
+            </p>
+          </div>
         </div>
       </div>
     </div>
