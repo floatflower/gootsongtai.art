@@ -183,6 +183,19 @@ export function ScatteredGallery() {
         .parhelion-mobile-grid::-webkit-scrollbar { display: none; }
       `}</style>
 
+      {/* 作品牌 */}
+      <div
+        className="absolute bottom-10 left-6 md:left-16 z-10 flex flex-col gap-1"
+        style={{ color: "rgba(90,40,30,1)" }}
+      >
+        <p className="text-sm font-bold tracking-wide italic">
+          2021年的12月份寫生
+        </p>
+        <p className="text-xs font-semibold tracking-wide opacity-60">
+          2021，以廣告顏料繪於法國水彩紙，75×50mm，共15張
+        </p>
+      </div>
+
       {/* Desktop — scattered pile */}
       <div
         ref={containerRef}

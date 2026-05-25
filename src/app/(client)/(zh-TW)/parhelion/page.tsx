@@ -132,17 +132,26 @@ export default function ParhelionPage() {
         <SphereGallery />
       </section>
 
-      {/* Slide 5 — Scattered color-ticket photos (202112) */}
+      {/* Slide 5 — Quote */}
+      <section className="snap-start relative z-[2] h-screen flex items-center justify-center px-6 md:px-16">
+        <div className="border-l-4 border-white/40 px-8 py-4 max-w-3xl">
+          <p className="text-base sm:text-lg font-semibold leading-[2] text-white">
+            一日的往返，我把臺南的日落帶到花蓮與日出相見，再把花蓮的日出帶到臺南與日落相見。
+          </p>
+        </div>
+      </section>
+
+      {/* Slide 6 — Scattered color-ticket photos (202112) */}
       <section className="snap-start relative z-[2] h-screen overflow-hidden">
         <ScatteredGallery />
       </section>
 
-      {/* Slide 6 — Fan color-ticket photos (202201) */}
+      {/* Slide 7 — Fan color-ticket photos (202201) */}
       <section className="snap-start relative z-[2] h-screen overflow-hidden">
         <FanGallery />
       </section>
 
-      {/* Slide 7 — Rest */}
+      {/* Slide 8 — Rest */}
       <section className="snap-start relative z-[2] min-h-screen flex flex-col justify-center py-20">
         {/* 作品牌 */}
         <div className="px-6 md:px-16 py-4 max-w-3xl mx-auto w-full">

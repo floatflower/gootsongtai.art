@@ -98,6 +98,19 @@ export function FanGallery() {
 
   return (
     <>
+      {/* 作品牌 */}
+      <div
+        className="absolute bottom-10 left-6 md:left-16 z-10 flex flex-col gap-1"
+        style={{ color: "rgba(90,40,30,1)" }}
+      >
+        <p className="text-sm font-bold tracking-wide italic">
+          2022年公轉後的第一個日落
+        </p>
+        <p className="text-xs font-semibold tracking-wide opacity-60">
+          2022，以廣告顏料繪於法國水彩紙，75×50mm，共9張
+        </p>
+      </div>
+
       {/* Desktop: peacock fan, fixed at screen centre */}
       <div className="hidden md:block relative w-full h-full overflow-hidden">
         {/* Anchor: container 50% × 70%; fan pivot sits here */}

@@ -52,7 +52,8 @@ export function SphereGallery() {
               filter: "blur(8px)",
               animation: "parhelion-ripple 4.5s ease-out infinite",
               animationDelay: `${n * 1.5}s`,
-              transition: "left 0.6s cubic-bezier(0.65, 0, 0.35, 1), border-color 0.6s ease",
+              transition:
+                "left 0.6s cubic-bezier(0.65, 0, 0.35, 1), border-color 0.6s ease",
             }}
           />
         ))}
