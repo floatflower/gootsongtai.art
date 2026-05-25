@@ -48,7 +48,7 @@ export function SphereGallery() {
               left: isDusk ? "80%" : "20%",
               width: "40%",
               aspectRatio: "1 / 1",
-              border: `16px solid ${isDusk ? "#ffc9cb" : "#f7f5b4"}`,
+              border: `16px solid ${isDusk ? "#ffc9cb" : "#e0e178"}`,
               filter: "blur(8px)",
               animation: "parhelion-ripple 4.5s ease-out infinite",
               animationDelay: `${n * 1.5}s`,
