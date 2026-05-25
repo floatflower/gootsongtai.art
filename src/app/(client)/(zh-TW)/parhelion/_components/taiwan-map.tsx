@@ -282,7 +282,7 @@ export function TaiwanMap() {
       style={{ height: "300vh" }}
     >
       <div className="sticky top-0 h-screen flex items-center justify-center px-6 md:px-16">
-        <div className="w-full max-w-3xl">
+        <div className="w-full max-w-5xl">
           <div
             className="w-full rounded-2xl overflow-hidden"
             style={{ height: 430 }}
