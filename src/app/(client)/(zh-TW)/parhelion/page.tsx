@@ -153,15 +153,6 @@ export default function ParhelionPage() {
 
       {/* Slide 8 — Rest */}
       <section className="snap-start relative z-[2] min-h-screen flex flex-col justify-center py-20">
-        {/* 內容 */}
-        <div className="px-6 md:px-16 py-4 max-w-5xl mx-auto w-full">
-          <div className="border-l-4 border-white/20 pl-6 px-4">
-            <p className="text-lg sm:text-xl font-semibold leading-[2.2] text-white">
-              一日的往返，我把臺南的日落帶到花蓮與日出相見，再把花蓮的日出帶到臺南與日落相見。
-            </p>
-          </div>
-        </div>
-
         {/* 內容 2 */}
         <div className="px-6 md:px-16 pb-4 max-w-5xl mx-auto w-full pt-12">
           <p className="text-base font-semibold leading-[2.2] text-white mb-6">
@@ -174,6 +165,21 @@ export default function ParhelionPage() {
           <p className="text-base font-semibold leading-[2.2] text-white">
             經過一個月依該日天氣與不精準的傍晚時間，透過當下的眼睛與色料，以明知不精準的丈量方式描繪時刻變化的色光，始終存在的誤差，提供我與真實太陽之間的海市蜃樓，保留
             <strong>想像而彼此心領的關係</strong>。
+          </p>
+
+          <div
+            className="w-8 h-px mt-16 mb-6 opacity-40"
+            style={{ background: "rgba(90,40,30,1)" }}
+          />
+          <p
+            className="text-xs font-bold tracking-widest opacity-40"
+            style={{ color: "rgba(90,40,30,1)" }}
+          >
+            <i>幻日</i>，2022，以水泥漆木板自花蓮至臺南的移動過程，180×180cm
+            <br />
+            <i>2021年的12月份寫生</i>，2021，以廣告顏料繪於法國水彩紙，75×50mm，共15張
+            <br />
+            <i>2022年公轉後的第一個日落</i>，2022，以廣告顏料繪於法國水彩紙，75×50mm，共9張
           </p>
         </div>
       </section>
