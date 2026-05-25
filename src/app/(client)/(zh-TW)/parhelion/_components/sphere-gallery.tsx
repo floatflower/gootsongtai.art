@@ -7,7 +7,7 @@ export function SphereGallery() {
 
   return (
     <section className="relative z-[2] px-6 md:px-16 py-4 max-w-5xl mx-auto w-full">
-      <p className="text-xs md:text-base font-bold leading-[1.9] text-white mb-4 md:mb-8">
+      <p className="text-sm font-bold leading-[1.9] text-white mb-4 md:mb-8">
         2022.03.05 驚蟄（六）
       </p>
 
@@ -20,7 +20,7 @@ export function SphereGallery() {
        * so we let the track height auto-size via padding instead.
        */}
       <div
-        className="relative rounded-full"
+        className="relative rounded-full overflow-hidden"
         style={{
           paddingTop: "40%",
           background: isDusk ? "#ffafb2" : "#f1f294",
@@ -30,6 +30,33 @@ export function SphereGallery() {
           border: "1.5px solid rgba(0,0,0,0.10)",
         }}
       >
+        <style>{`
+          @keyframes parhelion-ripple {
+            0%   { transform: translate(-50%, -50%) scale(0.5); opacity: 0.5; }
+            85%  { opacity: 0; }
+            100% { transform: translate(-50%, -50%) scale(4); opacity: 0; }
+          }
+        `}</style>
+
+        {/* ── Swipe hint — concentric ripples from the thumb ── */}
+        {[0, 1, 2].map((n) => (
+          <div
+            key={n}
+            className="pointer-events-none absolute rounded-full"
+            style={{
+              top: "50%",
+              left: isDusk ? "80%" : "20%",
+              width: "40%",
+              aspectRatio: "1 / 1",
+              border: `16px solid ${isDusk ? "#ffc9cb" : "#f7f5b4"}`,
+              filter: "blur(8px)",
+              animation: "parhelion-ripple 4.5s ease-out infinite",
+              animationDelay: `${n * 1.5}s`,
+              transition: "left 0.6s cubic-bezier(0.65, 0, 0.35, 1), border-color 0.6s ease",
+            }}
+          />
+        ))}
+
         {/* ── Dawn info — right side (yellow bg → dark text) ── */}
         <div
           className="absolute flex flex-col items-center text-center"
