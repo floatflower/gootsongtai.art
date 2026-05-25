@@ -2,6 +2,28 @@
 
 import { useEffect, useRef, useState } from "react";
 
+function Chevron({ dir }: { dir: "left" | "right" }) {
+  return (
+    <svg
+      width="28"
+      height="28"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="white"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ filter: "drop-shadow(0 1px 3px rgba(0,0,0,0.6))" }}
+    >
+      {dir === "left" ? (
+        <polyline points="15 18 9 12 15 6" />
+      ) : (
+        <polyline points="9 18 15 12 9 6" />
+      )}
+    </svg>
+  );
+}
+
 const PHOTOS = [
   "1-1.jpg",
   "1-2.jpg",
@@ -72,6 +94,30 @@ export function ScatteredGallery() {
   const [hovered, setHovered] = useState<number | null>(null);
   const [active, setActive] = useState<string | null>(null);
   const [displayed, setDisplayed] = useState<string | null>(null);
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [atStart, setAtStart] = useState(true);
+  const [atEnd, setAtEnd] = useState(false);
+
+  const updateArrows = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const { scrollLeft, scrollWidth, clientWidth } = el;
+    setAtStart(scrollLeft <= 1);
+    setAtEnd(scrollLeft + clientWidth >= scrollWidth - 1);
+  };
+
+  useEffect(() => {
+    updateArrows();
+    window.addEventListener("resize", updateArrows);
+    return () => window.removeEventListener("resize", updateArrows);
+  }, []);
+
+  const scrollByAmount = (dir: number) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * el.clientWidth * 0.8, behavior: "smooth" });
+  };
 
   // Keep the lightbox image in DOM during fade-out.
   useEffect(() => {
@@ -198,48 +244,73 @@ export function ScatteredGallery() {
       </div>
 
       {/* Mobile — horizontally scrollable 5×3 grid */}
-      <div
-        className="parhelion-mobile-grid md:hidden w-full h-full overflow-x-auto overflow-y-hidden flex items-center pt-24 pb-10"
-        style={{
-          scrollbarWidth: "none",
-          WebkitOverflowScrolling: "touch",
-          boxSizing: "border-box",
-        }}
-      >
-        <div className="flex flex-col gap-3 pl-6 pr-10 w-max">
-          {[0, 1, 2].map((rowIdx) => (
-            <div key={rowIdx} className="flex gap-3">
-              {PHOTOS.slice(rowIdx * 5, rowIdx * 5 + 5).map((photo) => (
-                <button
-                  key={photo}
-                  onClick={() => setActive(photo)}
-                  aria-label={`查看色票 ${photo}`}
-                  className="bg-white p-1 shrink-0"
-                  style={{
-                    boxShadow:
-                      "0 8px 22px rgba(0,0,0,0.35), 0 2px 6px rgba(0,0,0,0.2)",
-                    border: "none",
-                    cursor: "pointer",
-                  }}
-                >
-                  <img
-                    src={`${PHOTO_BASE}/${photo}`}
-                    alt=""
-                    draggable={false}
-                    loading="lazy"
+      <div className="md:hidden relative w-full h-full">
+        <div
+          ref={scrollRef}
+          onScroll={updateArrows}
+          className="parhelion-mobile-grid w-full h-full overflow-x-auto overflow-y-hidden flex items-center pt-24 pb-10"
+          style={{
+            scrollbarWidth: "none",
+            WebkitOverflowScrolling: "touch",
+            boxSizing: "border-box",
+          }}
+        >
+          <div className="flex flex-col gap-3 pl-6 pr-10 w-max">
+            {[0, 1, 2].map((rowIdx) => (
+              <div key={rowIdx} className="flex gap-3">
+                {PHOTOS.slice(rowIdx * 5, rowIdx * 5 + 5).map((photo) => (
+                  <button
+                    key={photo}
+                    onClick={() => setActive(photo)}
+                    aria-label={`查看色票 ${photo}`}
+                    className="bg-white p-1 shrink-0"
                     style={{
-                      width: 100,
-                      height: 150,
-                      objectFit: "cover",
-                      display: "block",
+                      boxShadow:
+                        "0 8px 22px rgba(0,0,0,0.35), 0 2px 6px rgba(0,0,0,0.2)",
+                      border: "none",
                       cursor: "pointer",
                     }}
-                  />
-                </button>
-              ))}
-            </div>
-          ))}
+                  >
+                    <img
+                      src={`${PHOTO_BASE}/${photo}`}
+                      alt=""
+                      draggable={false}
+                      loading="lazy"
+                      style={{
+                        width: 100,
+                        height: 150,
+                        objectFit: "cover",
+                        display: "block",
+                        cursor: "pointer",
+                      }}
+                    />
+                  </button>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
+
+        {!atStart && (
+          <button
+            onClick={() => scrollByAmount(-1)}
+            aria-label="向左捲動"
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 rounded-full"
+            style={{ background: "none", border: "none", cursor: "pointer" }}
+          >
+            <Chevron dir="left" />
+          </button>
+        )}
+        {!atEnd && (
+          <button
+            onClick={() => scrollByAmount(1)}
+            aria-label="向右捲動"
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 rounded-full"
+            style={{ background: "none", border: "none", cursor: "pointer" }}
+          >
+            <Chevron dir="right" />
+          </button>
+        )}
       </div>
 
       {/* Lightbox overlay */}
