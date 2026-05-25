@@ -45,16 +45,12 @@ export function SphereGallery() {
             pointerEvents: isDusk ? "none" : "auto",
           }}
         >
-          <p className="text-[9px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] font-black uppercase mb-1 md:mb-3 text-black/45">
-            日出 · Dawn
-          </p>
           <p className="text-sm md:text-2xl font-bold mb-0.5 md:mb-1 text-black/80">
-            貓霧光
+            貓霧光 bâ-bū-á-kng
           </p>
-          <p className="text-[10px] md:text-sm font-normal italic mb-1 md:mb-3 text-black/45">
-            bâ-bū-á-kng
-          </p>
-          <p className="text-[10px] md:text-base font-semibold mb-0.5 md:mb-1 text-black/65">
+          {/* <p className="text-sm md:text-2xl font-bold mb-0.5 md:mb-1 text-black/80">
+          </p> */}
+          <p className="text-[10px] md:text-base font-semibold mb-0.5 md:mb-1 text-black/65 pt-4">
             07:00–08:00
           </p>
           <p className="text-[10px] md:text-base font-bold text-black/80 leading-tight">
@@ -77,16 +73,13 @@ export function SphereGallery() {
             pointerEvents: isDusk ? "auto" : "none",
           }}
         >
-          <p className="text-[9px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] font-black uppercase mb-1 md:mb-3 text-white/60">
-            日落 · Dusk
-          </p>
           <p className="text-sm md:text-2xl font-bold mb-0.5 md:mb-1 text-white">
-            暗雯光
+            暗雯光 àm-bûn-á-kng
           </p>
-          <p className="text-[10px] md:text-sm font-normal italic mb-1 md:mb-3 text-white/60">
-            àm-bûn-á-kng
-          </p>
-          <p className="text-[10px] md:text-base font-semibold mb-0.5 md:mb-1 text-white/80">
+          {/* <p className="text-sm md:text-2xl font-bold mb-0.5 md:mb-1 text-white">
+            
+          </p> */}
+          <p className="text-[10px] md:text-base font-semibold mb-0.5 md:mb-1 text-white/80 pt-4">
             17:00–18:00
           </p>
           <p className="text-[10px] md:text-base font-bold text-white leading-tight">
