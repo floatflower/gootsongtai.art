@@ -168,22 +168,23 @@ export default function ParhelionPage() {
           </p>
         </div>
 
-        {/* 作品牌彙整 — 固定左下 */}
-        <div
-          className="absolute bottom-10 left-6 md:left-16 z-10 opacity-40"
-          style={{ color: "rgba(90,40,30,1)" }}
-        >
-          <div
-            className="w-8 h-px mb-4"
-            style={{ background: "rgba(90,40,30,1)" }}
-          />
-          <p className="text-xs font-bold tracking-widest">
-            <i>幻日</i>，2022，以水泥漆木板自花蓮至臺南的移動過程，180×180cm
-            <br />
-            <i>2021年的12月份寫生</i>，2021，以廣告顏料繪於法國水彩紙，75×50mm，共15張
-            <br />
-            <i>2022年公轉後的第一個日落</i>，2022，以廣告顏料繪於法國水彩紙，75×50mm，共9張
-          </p>
+        {/* 作品牌彙整 — 固定在 container 左下 */}
+        <div className="absolute inset-x-0 bottom-10 z-10 max-w-5xl mx-auto w-full px-6 md:px-16">
+          <div className="opacity-40" style={{ color: "rgba(90,40,30,1)" }}>
+            <div
+              className="w-8 h-px mb-4"
+              style={{ background: "rgba(90,40,30,1)" }}
+            />
+            <p className="text-xs font-bold tracking-widest">
+              <i>幻日</i>，2022，以水泥漆木板自花蓮至臺南的移動過程，180×180cm
+              <br />
+              <i>2021年的12月份寫生</i>
+              ，2021，以廣告顏料繪於法國水彩紙，75×50mm，共15張
+              <br />
+              <i>2022年公轉後的第一個日落</i>
+              ，2022，以廣告顏料繪於法國水彩紙，75×50mm，共9張
+            </p>
+          </div>
         </div>
       </section>
     </div>
