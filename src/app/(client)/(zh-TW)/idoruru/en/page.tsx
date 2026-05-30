@@ -231,21 +231,6 @@ export default function IdoruruEnPage() {
             of <b>how an artist is expected to be seen</b>, and{" "}
             <b>how one learns to become such a figure</b>.
           </p>
-          <p className="text-base font-semibold leading-[2] text-black">
-            As these expectations consolidate into criteria for what is
-            recognised as &ldquo;good&rdquo; contemporary art, the
-            artist&rsquo;s identity becomes entangled with institutionally
-            designed rules of the game. Like the absence of mirrors in
-            Disneyland restrooms, or the coloured transition screens in
-            role-playing games that prevent players from catching their own
-            reflection, these mechanisms suspend self-awareness. Whether in
-            themed environments or virtual worlds, such systems enable the
-            adoption of identities detached from the self. In this sense,
-            contemporary art no longer operates solely as an expression of
-            personal experience, but as a calibrated production of
-            affect&mdash;one that seeks resonance and generates specific
-            responses.
-          </p>
         </div>
       </section>
 
@@ -303,17 +288,6 @@ export default function IdoruruEnPage() {
         <section className="max-w-5xl mx-auto">
           <BeforeAfterCarousel />
         </section>
-
-        {/* Last paragraph */}
-        <div className="py-12 grid grid-cols-1 sm:grid-cols-1 gap-10">
-          <p className="text-base font-semibold leading-[2] text-black">
-            This work loosens these mechanisms by reconfiguring the relations
-            between art, artwork, and artist. Through actor-artists reenacting
-            the exhibited artists&rsquo; statements, it asks whether such
-            projections can be sustained, and whether authorship can evade the
-            demand for evidential authenticity.
-          </p>
-        </div>
 
         <div className="w-8 h-px bg-neutral-300 mt-16 mb-6" />
         <p className="text-xs font-bold text-neutral-300 tracking-widest pb-20">

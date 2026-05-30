@@ -9,9 +9,9 @@ export const routes = [
     path: "/profile",
     name: "個人簡介",
   },
-  {
-    id: "idoruru",
-    path: "/idoruru",
-    name: "偶像轉生計劃",
-  },
+  // {
+  //   id: "idoruru",
+  //   path: "/idoruru",
+  //   name: "偶像轉生計劃",
+  // },
 ];

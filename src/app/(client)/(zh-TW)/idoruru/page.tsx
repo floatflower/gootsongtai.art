@@ -215,10 +215,6 @@ export default function IdoruruPage() {
             <b>藝術家應該如何被社會期待</b>」以及「
             <b>如何學習成為一位被社會期待的藝術家</b>」的雙向結構。
           </p>
-
-          <p className="text-base font-semibold leading-[2] text-black">
-            如今被建立觀看為好的當代藝術的標準，創作者的身分與藝術有著機構訂製遊戲規則的介入關係，如同進入迪士尼樂園的廁所不見鏡子，或是角色扮演手遊中的彩色過場畫面，都是為了避免透過鏡子或是手機黑幕看見自己反射出的容貌。不管是迪士尼或是虛擬遊戲，它們滿足玩家在現實世界之外的身分，在角色扮演代入為他人的世界，不需要真實世界自我意識的現身；而當代藝術表達的世界，也不再只是個人真實世界的情感或經驗的抒發，而是能激起共鳴以達引發某種效應等等的感官刺激。
-          </p>
         </div>
       </section>
 
@@ -264,13 +260,6 @@ export default function IdoruruPage() {
         <section className="max-w-5xl mx-auto">
           <BeforeAfterCarousel />
         </section>
-
-        {/* Last two paragraphs — 2 column grid */}
-        <div className="py-12 grid grid-cols-1 sm:grid-cols-1 gap-10">
-          <p className="text-base font-semibold leading-[2] text-black">
-            此創作試圖在結構中試圖鬆動機構從中引入的開幕座談與導覽解說，不同程度翻轉了藝術、藝術品與藝術家的關係，前者矛盾了藝術家在藝術它者的位置，後者讓導覽員取代藝術家的位置。透過開幕座談現場的演員藝術家重新詮釋展覽藝術家的論述，是否可以滿足觀眾對演員藝術家的投射？又可以滿足展覽藝術家避開身分暴露以面對不必要的證據問題呢？
-          </p>
-        </div>
 
         <div className="w-8 h-px bg-neutral-300 mt-16 mb-6" />
         <p className="text-xs font-bold text-neutral-300 tracking-widest pb-20">

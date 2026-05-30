@@ -229,7 +229,7 @@ export function TaiwanMap({ locale = "zh" }: TaiwanMapProps) {
         .attr("y", -52)
         .text(
           locale === "en"
-            ? "03.05.2022 Awakening of Insects"
+            ? "05. March. 2022 (Set.) Awakening of Insects"
             : "2022.03.05 驚蟄",
         );
 
