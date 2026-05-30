@@ -15,7 +15,7 @@ export function SphereGallery({ locale = "zh" }: SphereGalleryProps) {
     <section className="relative z-[2] px-6 md:px-16 py-4 max-w-5xl mx-auto w-full">
       <p className="text-sm font-bold leading-[1.9] text-white mb-4 md:mb-8">
         {isEn
-          ? "03.05.2022 (Sat.) Awakening of Insects, 24 Solar Terms"
+          ? "05. March. 2022 (Set.) Awakening of Insects"
           : "2022.03.05 驚蟄（六）"}
       </p>
 
