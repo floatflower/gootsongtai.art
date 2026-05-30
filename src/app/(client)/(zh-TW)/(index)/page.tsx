@@ -3,6 +3,7 @@ import { Block02 } from "./_components/block-02";
 import { Block03 } from "./_components/block-03";
 import { Block04 } from "./_components/block-04";
 import { Block05 } from "./_components/block-05";
+import { Block06 } from "./_components/block-06";
 
 export default function Page() {
   return (
@@ -13,6 +14,7 @@ export default function Page() {
         <Block03 />
         <Block04 />
         <Block05 />
+        <Block06 />
       </div>
     </div>
   );
