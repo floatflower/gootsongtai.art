@@ -2,14 +2,21 @@
 
 import { useState } from "react";
 
-export function SphereGallery() {
+interface SphereGalleryProps {
+  locale?: "zh" | "en";
+}
+
+export function SphereGallery({ locale = "zh" }: SphereGalleryProps) {
   const [isDusk, setIsDusk] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const isEn = locale === "en";
 
   return (
     <section className="relative z-[2] px-6 md:px-16 py-4 max-w-5xl mx-auto w-full">
       <p className="text-sm font-bold leading-[1.9] text-white mb-4 md:mb-8">
-        2022.03.05 驚蟄（六）
+        {isEn
+          ? "03.05.2022 (Sat.) Awakening of Insects, 24 Solar Terms"
+          : "2022.03.05 驚蟄（六）"}
       </p>
 
       {/*
@@ -75,15 +82,15 @@ export function SphereGallery() {
           }}
         >
           <p className="text-sm md:text-2xl font-bold mb-0.5 md:mb-1 text-black/80">
-            貓霧光 bâ-bū-á-kng
+            {isEn ? "Bâ-bū-á-kng Daybreak" : "貓霧光 bâ-bū-á-kng"}
           </p>
-          {/* <p className="text-sm md:text-2xl font-bold mb-0.5 md:mb-1 text-black/80">
-          </p> */}
           <p className="text-[10px] md:text-base font-semibold mb-0.5 md:mb-1 text-black/65 pt-4">
             07:00–08:00
           </p>
           <p className="text-[10px] md:text-base font-bold text-black/80 leading-tight">
-            花蓮－國立東華大學
+            {isEn
+              ? "NDHU National Dong Hwa University, Hualien"
+              : "花蓮－國立東華大學"}
           </p>
         </div>
 
@@ -103,16 +110,15 @@ export function SphereGallery() {
           }}
         >
           <p className="text-sm md:text-2xl font-bold mb-0.5 md:mb-1 text-white">
-            暗雯光 àm-bûn-á-kng
+            {isEn ? "Àm-bûn-á-kng Twilight" : "暗雯光 àm-bûn-á-kng"}
           </p>
-          {/* <p className="text-sm md:text-2xl font-bold mb-0.5 md:mb-1 text-white">
-            
-          </p> */}
           <p className="text-[10px] md:text-base font-semibold mb-0.5 md:mb-1 text-white/80 pt-4">
             17:00–18:00
           </p>
           <p className="text-[10px] md:text-base font-bold text-white leading-tight">
-            臺南－臺南藝術大學
+            {isEn
+              ? "TNNUA Tainan National University of the Arts, Tainan"
+              : "臺南－臺南藝術大學"}
           </p>
         </div>
 
@@ -121,7 +127,15 @@ export function SphereGallery() {
           onClick={() => setIsDusk((d) => !d)}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          aria-label={isDusk ? "切換至日出" : "切換至日落"}
+          aria-label={
+            isDusk
+              ? isEn
+                ? "Switch to Daybreak"
+                : "切換至日出"
+              : isEn
+                ? "Switch to Twilight"
+                : "切換至日落"
+          }
           className="absolute z-10 cursor-pointer select-none"
           style={{
             top: 6,

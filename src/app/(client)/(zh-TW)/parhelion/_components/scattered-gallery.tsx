@@ -87,7 +87,11 @@ const SLOTS: Slot[] = [
 
 const PHOTO_BASE = "/images/parhelion/color-tickets/202112";
 
-export function ScatteredGallery() {
+interface ScatteredGalleryProps {
+  locale?: "zh" | "en";
+}
+
+export function ScatteredGallery({ locale = "zh" }: ScatteredGalleryProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef(0);
   const [expanded, setExpanded] = useState(false);
@@ -189,10 +193,14 @@ export function ScatteredGallery() {
         style={{ color: "rgba(90,40,30,1)" }}
       >
         <p className="text-sm font-bold tracking-wide italic">
-          2021年的12月份寫生
+          {locale === "en"
+            ? "Sketching in December 2021"
+            : "2021年的12月份寫生"}
         </p>
         <p className="text-xs font-semibold tracking-wide opacity-60">
-          2021，以廣告顏料繪於法國水彩紙，75×50mm，共15張
+          {locale === "en"
+            ? "2021, Poster Colour on Arches, 75×50mm, 15 in total"
+            : "2021，以廣告顏料繪於法國水彩紙，75×50mm，共15張"}
         </p>
       </div>
 

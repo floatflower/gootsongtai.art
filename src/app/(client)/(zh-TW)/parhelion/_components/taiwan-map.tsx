@@ -71,7 +71,11 @@ const styles = `
   }
 `;
 
-export function TaiwanMap() {
+interface TaiwanMapProps {
+  locale?: "zh" | "en";
+}
+
+export function TaiwanMap({ locale = "zh" }: TaiwanMapProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const routePathRef = useRef<SVGPathElement | null>(null);
@@ -223,7 +227,11 @@ export function TaiwanMap() {
       g.append("text")
         .attr("class", "clock-date")
         .attr("y", -52)
-        .text("2022.03.05 驚蟄");
+        .text(
+          locale === "en"
+            ? "03.05.2022 Awakening of Insects"
+            : "2022.03.05 驚蟄",
+        );
 
       clockTimeRef.current = g
         .append("text")
@@ -232,7 +240,7 @@ export function TaiwanMap() {
         .text(toTimeStr(CLOCK_START))
         .node() as SVGTextElement;
     });
-  }, []);
+  }, [locale]);
 
   // Scroll → dot + clock
   useEffect(() => {
@@ -295,9 +303,13 @@ export function TaiwanMap() {
             />
           </div>
           <div className="flex flex-col gap-1 mt-4 text-white">
-            <p className="text-sm font-bold tracking-wide italic">幻日</p>
+            <p className="text-sm font-bold tracking-wide italic">
+              {locale === "en" ? "Parhelion" : "幻日"}
+            </p>
             <p className="text-xs font-semibold tracking-wide">
-              2022，以水泥漆木板自花蓮至臺南的移動過程，180×180cm
+              {locale === "en"
+                ? "2022, Process-based work structured by the movement of a cement-painted board from Hualien to Tainan, 180×180cm"
+                : "2022，以水泥漆木板自花蓮至臺南的移動過程，180×180cm"}
             </p>
           </div>
         </div>

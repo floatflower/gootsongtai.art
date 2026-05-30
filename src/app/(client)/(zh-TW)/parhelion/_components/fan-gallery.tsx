@@ -43,7 +43,11 @@ const CARD_H = 225;
 const ANGLE_STEP = 6; // degrees between adjacent cards
 const PIVOT_OFFSET = 600; // px below the card bottom — bigger = wider fan spread
 
-export function FanGallery() {
+interface FanGalleryProps {
+  locale?: "zh" | "en";
+}
+
+export function FanGallery({ locale = "zh" }: FanGalleryProps) {
   const [hovered, setHovered] = useState<number | null>(null);
   const [active, setActive] = useState<string | null>(null);
   const [displayed, setDisplayed] = useState<string | null>(null);
@@ -104,10 +108,14 @@ export function FanGallery() {
         style={{ color: "rgba(90,40,30,1)" }}
       >
         <p className="text-sm font-bold tracking-wide italic">
-          2022年公轉後的第一個日落
+          {locale === "en"
+            ? "The first sunset in 2022"
+            : "2022年公轉後的第一個日落"}
         </p>
         <p className="text-xs font-semibold tracking-wide opacity-60">
-          2022，以廣告顏料繪於法國水彩紙，75×50mm，共9張
+          {locale === "en"
+            ? "2022, Poster Colour on Arches, 75×50mm, 9 in total"
+            : "2022，以廣告顏料繪於法國水彩紙，75×50mm，共9張"}
         </p>
       </div>
 
