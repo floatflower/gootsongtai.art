@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export function SphereGallery() {
   const [isDusk, setIsDusk] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <section className="relative z-[2] px-6 md:px-16 py-4 max-w-5xl mx-auto w-full">
@@ -118,6 +119,8 @@ export function SphereGallery() {
         {/* ── Sphere thumb — 40% wide, 6px inset padding ───── */}
         <button
           onClick={() => setIsDusk((d) => !d)}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
           aria-label={isDusk ? "切換至日出" : "切換至日落"}
           className="absolute z-10 cursor-pointer select-none"
           style={{
@@ -126,7 +129,13 @@ export function SphereGallery() {
             /* width shrinks by 6px on each side to leave gap from track edge */
             width: "calc(40% - 12px)",
             left: isDusk ? "calc(60% + 6px)" : 6,
-            transition: "left 0.6s cubic-bezier(0.65, 0, 0.35, 1)",
+            transform: isHovered
+              ? isDusk
+                ? "translateX(-15px)"
+                : "translateX(15px)"
+              : "translateX(0)",
+            transition:
+              "left 0.6s cubic-bezier(0.65, 0, 0.35, 1), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
             background: "none",
             border: "none",
             padding: 0,
